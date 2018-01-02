@@ -14,21 +14,21 @@ struct ListNode* insertionSortList(struct ListNode* head) {
     struct ListNode *pos = newHead, *preCurr = newHead -> next;
     while (preCurr -> next)
     {
-    	pos = newHead;
-		while (pos != preCurr && pos -> next -> val < preCurr -> next -> val){
-    		pos = pos -> next;
-    	}
+        pos = newHead;
+        while (pos != preCurr && pos -> next -> val < preCurr -> next -> val){
+            pos = pos -> next;
+        }
 
-    	if (pos == preCurr)
-    	{
-    		preCurr = preCurr -> next;
-    	}else{
-	    	struct ListNode *curr = preCurr->next;
-			preCurr->next = curr->next;
+        if (pos == preCurr)
+        {
+            preCurr = preCurr -> next;
+        }else{
+            struct ListNode *curr = preCurr->next;
+            preCurr->next = curr->next;
 
-			curr->next = pos->next;
-			pos->next = curr;
-    	}
+            curr->next = pos->next;
+            pos->next = curr;
+        }
     }
     return newHead->next;
 }
