@@ -1,3 +1,4 @@
+// Approach #1 Brute Force
 class Solution {
     public void sortColors(int[] nums) {
         int size = nums.length;
@@ -23,6 +24,22 @@ class Solution {
         {
             nums[++i] = 2;
             b--;
+        }
+    }
+}
+// Approach #2 Use 3-way partition 
+class Solution {
+    public void exch(int[] nums, int i, int j)
+    {
+        int temp = nums[i]; nums[i] = nums[j]; nums[j] = temp;         
+    }
+    public void sortColors(int[] nums){
+        int r = 0, w = 0, b = nums.length - 1;
+        while (w <= b)
+        {
+            if (nums[w] == 0) exch(nums,w++,r++);
+            else if(nums[w] == 2) exch(nums,w,b--);
+            else if (nums[w] == 1) w++; 
         }
     }
 }
