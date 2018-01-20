@@ -1,3 +1,5 @@
+// Approach #1: Brute Force
+// Runtime: 5 ms
 class Solution {
     public int[] anagramMappings(int[] A, int[] B) {
         int len = A.length;
@@ -11,4 +13,20 @@ class Solution {
         }
         return ans;
     }
+}
+// Approach #2: Use HashMap
+// Runtime: 7 ms
+import java.util.*;
+class Solution {
+        public int[] anagramMappings(int[] A, int[] B) {
+            int[] ans = new int[A.length];
+            Map <Integer, Integer> h = new HashMap<>();
+            for (int i = 0; i < B.length; i++) {
+                h.put(B[i],i);
+            }
+            for (int j = 0; j < A.length; j++) {
+                ans[j] = h.get(A[j]);
+            }
+            return ans;      
+        }
 }
