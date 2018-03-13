@@ -21,36 +21,26 @@ class Solution1 {
     }
 }
 
-// Approach #1 
-// Runtime: 13 ms
-class Solution {
+// Approach #2 
+// Runtime: 6 ms
+class Solution1 {
     public boolean isIsomorphic(String s, String t) {
         
-        if (s.length() != t.length() ) return false;
-        else if(s.length() == 0) return true;
+        if(s.length() == 0) return true;
         
         int[] charValueOfS = new int[128];
         int[] charValueOfT = new int[128];
         boolean resFlag = true;
         
-        int[] patternArrayOfS = new int[s.length()];
-        int[] patternArrayOfT = new int[t.length()];
         int patternNumOfS = 1,patternNumOfT = 1,arrayLen = s.length();
         for (int i = 0; i < arrayLen; i++) {
             char currCharOfS = s.charAt(i);
-            char currCharOfT = t.charAt(i);
-            if (charValueOfS[currCharOfS] == 0) {
-                charValueOfS[currCharOfS] = patternNumOfS++;
-            } 
-            patternArrayOfS[i] = charValueOfS[currCharOfS];
-            
-            if (charValueOfT[currCharOfT] == 0) {
-                charValueOfT[currCharOfT] = patternNumOfT++;
-            } 
-            patternArrayOfT[i] = charValueOfT[currCharOfT];
-            if (patternArrayOfS[i] != patternArrayOfT[i]) {
+            char currCharOfT = t.charAt(i);            
+            if (charValueOfT[currCharOfT] != charValueOfS[currCharOfS]) {
                 resFlag = false; break;
             } 
+            charValueOfS[currCharOfS] = patternNumOfS++;
+            charValueOfT[currCharOfT] = patternNumOfT++;
         }
         return resFlag;
     } 
