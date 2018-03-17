@@ -32,15 +32,16 @@ class Solution1 {
         int[] charValueOfT = new int[128];
         boolean resFlag = true;
         
-        int patternNumOfS = 1,patternNumOfT = 1,arrayLen = s.length();
+        int patternNum = 1,arrayLen = s.length();
         for (int i = 0; i < arrayLen; i++) {
             char currCharOfS = s.charAt(i);
             char currCharOfT = t.charAt(i);            
             if (charValueOfT[currCharOfT] != charValueOfS[currCharOfS]) {
                 resFlag = false; break;
             } 
-            charValueOfS[currCharOfS] = patternNumOfS++;
-            charValueOfT[currCharOfT] = patternNumOfT++;
+            charValueOfS[currCharOfS] = patternNum;
+            charValueOfT[currCharOfT] = patternNum;
+            patternNum ++;
         }
         return resFlag;
     } 
