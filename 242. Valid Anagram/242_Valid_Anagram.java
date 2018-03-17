@@ -12,3 +12,17 @@ class Solution {
 
 // Approach #2
 // Runtime: 
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
+        int[] hs = new int[52];
+        for (int i = 0; i < s.length(); i++) {
+            hs[s.charAt(i) - 'a'] ++;
+            hs[t.charAt(i) - 'a' + 26] ++;
+        }
+        for (int j = 0; j < 26; j++) {
+            if (hs[j] != hs[j + 26]) return false;
+        }
+        return true;
+    }
+}
