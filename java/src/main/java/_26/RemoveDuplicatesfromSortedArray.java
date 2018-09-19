@@ -1,15 +1,15 @@
-int removeDuplicates(int* nums, int numsSize) {
-    if (numsSize == 0)
-        return numsSize;
-    int i = 0;
-    int j = i + 1;
-    while (j < numsSize)
-    {
-        if (nums[i] != nums[j])
-        {
-            nums[++ i] = nums[j];
+package _26;
+
+public class RemoveDuplicatesfromSortedArray {
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int lastIndex = 0;
+        for (int walk = lastIndex + 1; walk < nums.length; walk ++) {
+            if (walk < nums.length && nums[lastIndex] == nums[walk]) {
+                continue;
+            }
+            nums[++ lastIndex] = nums[walk];
         }
-        j++;
+        return lastIndex + 1;
     }
-    return i + 1;
 }
