@@ -1,8 +1,12 @@
-// Approach #1 
+package _205;
+
+import java.util.HashMap;
+
+// Approach #1
 // Runtime: 23 ms
-class Solution1 {
+public class IsomorphicStrings{
     public String convertToPatternStr(String s) {
-        HashMap <Character,Integer>sh = new HashMap<>();
+        HashMap<Character,Integer> sh = new HashMap<>();
         StringBuilder sb = new StringBuilder();
         int id = 0;
         for (char c: s.toCharArray()) {
@@ -23,26 +27,26 @@ class Solution1 {
 
 // Approach #2 
 // Runtime: 6 ms
-class Solution1 {
-    public boolean isIsomorphic(String s, String t) {
-        
-        if(s.length() == 0) return true;
-        
-        int[] charValueOfS = new int[128];
-        int[] charValueOfT = new int[128];
-        boolean resFlag = true;
-        
-        int patternNum = 1,arrayLen = s.length();
-        for (int i = 0; i < arrayLen; i++) {
-            char currCharOfS = s.charAt(i);
-            char currCharOfT = t.charAt(i);            
-            if (charValueOfT[currCharOfT] != charValueOfS[currCharOfS]) {
-                resFlag = false; break;
-            } 
-            charValueOfS[currCharOfS] = patternNum;
-            charValueOfT[currCharOfT] = patternNum;
-            patternNum ++;
-        }
-        return resFlag;
-    } 
-}
+//class Solution1 {
+//    public boolean isIsomorphic(String s, String t) {
+//
+//        if(s.length() == 0) return true;
+//
+//        int[] charValueOfS = new int[128];
+//        int[] charValueOfT = new int[128];
+//        boolean resFlag = true;
+//
+//        int patternNum = 1,arrayLen = s.length();
+//        for (int i = 0; i < arrayLen; i++) {
+//            char currCharOfS = s.charAt(i);
+//            char currCharOfT = t.charAt(i);
+//            if (charValueOfT[currCharOfT] != charValueOfS[currCharOfS]) {
+//                resFlag = false; break;
+//            }
+//            charValueOfS[currCharOfS] = patternNum;
+//            charValueOfT[currCharOfT] = patternNum;
+//            patternNum ++;
+//        }
+//        return resFlag;
+//    }
+//}

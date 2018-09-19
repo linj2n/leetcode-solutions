@@ -1,5 +1,9 @@
-// Approach #1 
-class Solution {
+package _202;
+
+import java.util.HashSet;
+
+// Approach #1
+public class HappyNumber {
     public boolean isHappy(int n) {
         HashSet hs = new HashSet();
         int sum = 0; 

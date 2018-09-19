@@ -1,4 +1,6 @@
-class Solution {
+package _167;
+
+public class TwoSumII {
     public int[] twoSum(int[] numbers, int target) {
         int[] res = new int[2];
         int i = 0, j = numbers.length - 1;

@@ -1,6 +1,8 @@
+package _11;
+
 import java.lang.Math;
 import java.util.*;
-class Solution {
+class ContainerWithMostWater {
     public int maxArea(int[] height) {
         int res = 0;
         int i = 0, j = height.length - 1;
