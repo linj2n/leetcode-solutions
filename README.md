@@ -1,4 +1,7 @@
 # Solution List
+
+**18/300**
+
 | #    | Title                                                          | Solution                         | Difficulty                       |
 | :--- | :------------------------------------------------------------- | :------------------------------- | :------------------------------- |
 | 3    | [Longest Substring Without Repeating Characters][leetcode-url] | [java][java_3]                        | Medium                           | 
