@@ -1,14 +1,16 @@
 # Solution List
 
-**18/300**
+:construction: : **20/300**
 
 | #    | Title                                                          | Solution                         | Difficulty                       |
 | :--- | :------------------------------------------------------------- | :------------------------------- | :------------------------------- |
+| 1    | [Two Sum][leetcode-url_1] 		                                | [java][java_1]  | Easy
 | 3    | [Longest Substring Without Repeating Characters][leetcode-url] | [java][java_3]                        | Medium                           | 
 | 11   | [Container With Most Water ][leetcode-url]                     | [java][java_11]                       | Medium
 | 20   | [Valid Parentheses   ][leetcode-url]                           | [java][java_20] | Easy
 | 26   | [Remove Duplicates from Sorted Array ][leetcode-url]           | [java][java_26] | Easy
 | 27   | [Remove Element ][leetcode-url]                                | [java][java_27] | Easy
+| 28   | [Implement strStr()][leetcode-url_28]                          | [java][java_28] | Easy
 | 35   | [Search Insert Position ][leetcode-url]                        | [java][java_35] | Easy
 | 49   | [Group Anagrams ][leetcode-url]                                | [java][java_49] | Medium
 | 75   | [Sort Colors ][leetcode-url]                                   | [java][java_75] | Medium
@@ -24,11 +26,15 @@
 | 242  | [Valid Anagram ][leetcode-url]                                 | [java][java_242]  | Easy
 
 [leetcode-url]: https://leetcode.com/problemset/all/
+[java_1]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_1
+[leetcode-url_1]: https://leetcode.com/problems/two-sum/description/
 [java_3]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_3
 [Java_11]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_11
 [Java_20]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_20
 [Java_26]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_26
 [java_27]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_27
+[java_28]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_27
+[leetcode-url_28]: https://leetcode.com/problems/implement-strstr/description/
 [java_35]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_35
 [java_49]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_49
 [java_75]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_75
