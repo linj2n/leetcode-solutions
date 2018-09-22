@@ -1,6 +1,6 @@
 # Solution List
 
-:construction: : **20/300**
+:construction: : **21/300**
 
 | #    | Title                                                          | Solution                         | Difficulty                       |
 | :--- | :------------------------------------------------------------- | :------------------------------- | :------------------------------- |
@@ -13,6 +13,7 @@
 | 28   | [Implement strStr()][leetcode-url_28]                          | [java][java_28] | Easy
 | 35   | [Search Insert Position ][leetcode-url]                        | [java][java_35] | Easy
 | 49   | [Group Anagrams ][leetcode-url]                                | [java][java_49] | Medium
+| 58   | [Length of Last Word][leetcode-url_58]                         | [java][java_58] | Easy
 | 75   | [Sort Colors ][leetcode-url]                                   | [java][java_75] | Medium
 | 88   | [Merge Sorted Array ][leetcode-url]                            | [java][java_88] | Easy
 | 136  | [Single Number][leetcode-url]                                  | [java][java_136] | Easy
@@ -36,7 +37,10 @@
 [java_28]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_27
 [leetcode-url_28]: https://leetcode.com/problems/implement-strstr/description/
 [java_35]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_35
+[leetcode-url_35]: https://leetcode.com/problems/search-insert-position/description/
 [java_49]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_49
+[java_58]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_58
+[leetcode-url_58]: https://leetcode.com/problems/search-insert-position/description/
 [java_75]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_75
 [java_88]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_88
 [java_136]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_136
