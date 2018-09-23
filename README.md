@@ -1,11 +1,12 @@
 # Solution List
 
-:construction: : **21/300**
+:construction: : **22/300**
 
 | #    | Title                                                          | Solution                         | Difficulty                       |
 | :--- | :------------------------------------------------------------- | :------------------------------- | :------------------------------- |
 | 1    | [Two Sum][leetcode-url_1] 		                                | [java][java_1]  | Easy
-| 3    | [Longest Substring Without Repeating Characters][leetcode-url] | [java][java_3]                        | Medium                           | 
+| 3    | [Longest Substring Without Repeating Characters][leetcode-url] | [java][java_3]                        | Medium
+| 9   | [Palindrome Number ][leetcode-url_9]                     | [java][java_9]                       | easy                           | 
 | 11   | [Container With Most Water ][leetcode-url]                     | [java][java_11]                       | Medium
 | 20   | [Valid Parentheses   ][leetcode-url]                           | [java][java_20] | Easy
 | 26   | [Remove Duplicates from Sorted Array ][leetcode-url]           | [java][java_26] | Easy
@@ -30,6 +31,8 @@
 [java_1]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_1
 [leetcode-url_1]: https://leetcode.com/problems/two-sum/description/
 [java_3]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_3
+[java_9]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_9
+[leetcode-url_9]: https://leetcode.com/problems/palindrome-number/description/
 [Java_11]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_11
 [Java_20]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_20
 [Java_26]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_26
