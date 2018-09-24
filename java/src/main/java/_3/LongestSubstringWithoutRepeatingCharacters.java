@@ -36,8 +36,8 @@ class LongestSubstringWithoutRepeatingCharacters {
         int maxLength = 0;
         int i = 0, j = 0;
         while (i < s.length() && j < s.length()) {
-            Boolean exited = (set[s.charAt(j)] == 1);
-            if (!exited) {
+            Boolean existed = (set[s.charAt(j)] == 1);
+            if (!existed) {
                 set[s.charAt(j++)] = 1;
                 maxLength = Math.max(maxLength,j - i);
             } else {
