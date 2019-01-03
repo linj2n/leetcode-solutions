@@ -21,7 +21,7 @@ class LongestSubstringWithoutRepeatingCharacters {
         Map<Character,Integer> map = new HashMap<>();
         int maxLength = 0;
         int i = 0, j = 0;
-        while (i < s.length() && j < s.length()) {
+        while (j < s.length()) {
             char c = s.charAt(j);
             if (map.containsKey(c)) {
                 i = Math.max(map.get(c) + 1,i);
