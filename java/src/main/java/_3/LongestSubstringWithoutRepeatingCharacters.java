@@ -1,3 +1,6 @@
+package _3;
+import java.util.*;
+
 class LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
         return solution1(s);
@@ -9,7 +12,6 @@ class LongestSubstringWithoutRepeatingCharacters {
         while (i < s.length() && j < s.length()) {
             if (!set.contains(s.charAt(j))) {
                 set.add(s.charAt(j++));
-                // maxLength = Math.max(maxLength,set.size());
                 maxLength = Math.max(maxLength,j - i);
             } else {
                 set.remove(s.charAt(i++));
