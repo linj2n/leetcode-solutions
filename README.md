@@ -1,13 +1,15 @@
 # Solution List
 
-:construction: : **23/300**
+:construction: : **27/300**
 
 | #    | Title                                                          | Solution                         | Difficulty                       |
 | :--- | :------------------------------------------------------------- | :------------------------------- | :------------------------------- |
 | 1    | [Two Sum][leetcode-url_1] 		                                | [java][java_1]  | Easy
-| 3    | [Longest Substring Without Repeating Characters][leetcode-url] | [java][java_3]                        | Medium
-| 9   | [Palindrome Number ][leetcode-url_9]                     | [java][java_9]                       | easy                           | 
-| 11   | [Container With Most Water ][leetcode-url]                     | [java][java_11]                       | Medium
+| 3    | [Longest Substring Without Repeating Characters][leetcode-url_3] | [java][java_3]                        | Medium
+| 9   | [Palindrome Number ][leetcode-url_9]                     | [java][java_9]                       | Easy           
+| 11   | [Container With Most Water ][leetcode-url_11]                     | [java][java_11]                       | Medium
+| 13   | [Roman to Integer ][leetcode-url_13]                     | [java][java_13]                       | Medium
+| 14   | [Longest Common Prefix ][leetcode-url_14]                     | [java][java_14]                       | Easy
 | 20   | [Valid Parentheses   ][leetcode-url]                           | [java][java_20] | Easy
 | 26   | [Remove Duplicates from Sorted Array ][leetcode-url]           | [java][java_26] | Easy
 | 27   | [Remove Element ][leetcode-url]                                | [java][java_27] | Easy
@@ -18,7 +20,8 @@
 | 67   | [Add Binary][leetcode-url_67]                                  | [java][java_67] | Easy
 | 75   | [Sort Colors ][leetcode-url]                                   | [java][java_75] | Medium
 | 88   | [Merge Sorted Array ][leetcode-url]                            | [java][java_88] | Easy
-| 136  | [Single Number][leetcode-url]                                  | [java][java_136] | Easy
+| 125  | [Valid Palindrome ][leetcode-url_125]                          | [java][java_125] | Easy
+| 136  | [Single Number ][leetcode-url]                                  | [java][java_136] | Easy
 | 147  | [Insertion Sort List   ][leetcode-url]                         | [java][java_147] | Medium
 | 148  | [Sort List  ][leetcode-url]                                    | [java][java_148] | Medium
 | 167  | [Two Sum II - Input array is sorted   ][leetcode-url]          | [java][java_167]  | Easy
@@ -32,9 +35,15 @@
 [java_1]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_1
 [leetcode-url_1]: https://leetcode.com/problems/two-sum/description/
 [java_3]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_3
+[leetcode-url_3]: https://leetcode.com/problems/longest-substring-without-repeating-characters/
 [java_9]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_9
 [leetcode-url_9]: https://leetcode.com/problems/palindrome-number/description/
 [Java_11]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_11
+[leetcode-url_11]: https://leetcode.com/problems/container-with-most-water/
+[Java_13]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_13
+[leetcode-url_13]: https://leetcode.com/problems/roman-to-integer/
+[Java_14]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_14
+[leetcode-url_14]: https://leetcode.com/problems/longest-common-prefix/
 [Java_20]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_20
 [Java_26]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_26
 [java_27]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_27
@@ -49,6 +58,8 @@
 [leetcode-url_67]: https://leetcode.com/problems/add-binary/description/
 [java_75]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_75
 [java_88]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_88
+[java_125]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_125
+[leetcode-url_125]: https://leetcode.com/problems/valid-palindrome/
 [java_136]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_136
 [java_147]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_147
 [java_148]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_148
