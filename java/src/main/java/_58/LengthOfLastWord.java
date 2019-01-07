@@ -1,6 +1,5 @@
 package _58;
 
-import java.util.StringBuilder;
 public class LengthOfLastWord {
     public int lengthOfLastWord(String s) {
         return solution2(s);
@@ -16,14 +15,25 @@ public class LengthOfLastWord {
             if (s.charAt(i) != ' ') {
                 int j = i;
                 StringBuilder word = new StringBuilder();
-                for (;j < s.length() && s.charAt(j) != ' '; word.append(s.charAt(j ++))) {}
-                // while (j < s.length() && s.charAt(j) != ' ') {
-                //     word.append(s.charAt(j ++));
-                // }
+                 while (j < s.length() && s.charAt(j) != ' ') {
+                     word.append(s.charAt(j ++));
+                 }
                 length = word.length();
                 i = j;
             }
             i ++;
+        }
+        return length;
+    }
+    private int solution3(String s) {
+        int length = 0, i = 0;
+        while (i < s.length()) {
+            int j = i;
+            while (j < s.length() && s.charAt(j) != ' ') {
+                j ++;
+            }
+            length = (s.substring(i,j).isEmpty()) ? length : (j - i);
+            i = j + 1;
         }
         return length;
     }
