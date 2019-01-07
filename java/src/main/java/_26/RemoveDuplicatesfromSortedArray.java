@@ -5,12 +5,12 @@ public class RemoveDuplicatesfromSortedArray {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int lastIndex = 0;
-        for (int walk = lastIndex; walk < nums.length; ++ walk) {
-            if (nums[lastIndex] != nums[walk]) {
-                nums[++ lastIndex] = nums[walk];   
+        int endIndex = 0;
+        for (int walk = endIndex; walk < nums.length; ++ walk) {
+            if (nums[endIndex] != nums[walk]) {
+                nums[++ endIndex] = nums[walk];   
             }
         }
-        return lastIndex + 1;
+        return endIndex + 1;
     }
 }
