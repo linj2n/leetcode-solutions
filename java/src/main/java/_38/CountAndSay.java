@@ -1,12 +1,10 @@
-package _28;
-
-import java.util.StringBuilder;
+package _38;
 
 public class CountAndSay {
     public String countAndSay(int n) {
         return solution1(n);
     }
-    priavte String solution1(int n) {
+    private String solution1(int n) {
         int i = 0;
         String str = "1";
         while (i < n - 1) {
