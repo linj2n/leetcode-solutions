@@ -16,6 +16,7 @@
 | 28   | [Implement strStr()][leetcode-url_28]                          | [java][java_28] | Easy
 | 35   | [Search Insert Position ][leetcode-url]                        | [java][java_35] | Easy
 | 49   | [Group Anagrams ][leetcode-url]                                | [java][java_49] | Medium
+| 53   | [Length of Last Word][leetcode-url_53]                         | [java][java_53] | Easy
 | 58   | [Length of Last Word][leetcode-url_58]                         | [java][java_58] | Easy
 | 67   | [Add Binary][leetcode-url_67]                                  | [java][java_67] | Easy
 | 75   | [Sort Colors ][leetcode-url]                                   | [java][java_75] | Medium
@@ -52,6 +53,8 @@
 [java_35]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_35
 [leetcode-url_35]: https://leetcode.com/problems/search-insert-position/description/
 [java_49]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_49
+[java_53]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_53
+[leetcode-url_53]: https://leetcode.com/problems/maximum-subarray/description/
 [java_58]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_58
 [leetcode-url_58]: https://leetcode.com/problems/search-insert-position/description/
 [java_67]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_67
