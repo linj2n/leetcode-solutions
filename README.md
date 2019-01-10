@@ -1,6 +1,6 @@
 # Solution List
 
-:construction: : **28/300**
+:construction: : **30/300**
 
 | #    | Title                                                          | Solution                         | Difficulty                       |
 | :--- | :------------------------------------------------------------- | :------------------------------- | :------------------------------- |
@@ -16,13 +16,15 @@
 | 28   | [Implement strStr()][leetcode-url_28]                          | [java][java_28] | Easy
 | 35   | [Search Insert Position ][leetcode-url]                        | [java][java_35] | Easy
 | 49   | [Group Anagrams ][leetcode-url]                                | [java][java_49] | Medium
-| 53   | [Length of Last Word][leetcode-url_53]                         | [java][java_53] | Easy
+| 53   | [Maximum Subarray][leetcode-url_53]                         | [java][java_53] | Easy
 | 58   | [Length of Last Word][leetcode-url_58]                         | [java][java_58] | Easy
+| 66   | [Plus One][leetcode-url_66]                                  | [java][java_66] | Easy
 | 67   | [Add Binary][leetcode-url_67]                                  | [java][java_67] | Easy
 | 75   | [Sort Colors ][leetcode-url]                                   | [java][java_75] | Medium
 | 88   | [Merge Sorted Array ][leetcode-url]                            | [java][java_88] | Easy
+| 118  | [Pascal's Triangle][leetcode-url_118]                          | [java][java_118] | Easy
 | 125  | [Valid Palindrome ][leetcode-url_125]                          | [java][java_125] | Easy
-| 136  | [Single Number ][leetcode-url]                                  | [java][java_136] | Easy
+| 136  | [Single Number ][leetcode-url]                                 | [java][java_136] | Easy
 | 147  | [Insertion Sort List   ][leetcode-url]                         | [java][java_147] | Medium
 | 148  | [Sort List  ][leetcode-url]                                    | [java][java_148] | Medium
 | 167  | [Two Sum II - Input array is sorted   ][leetcode-url]          | [java][java_167]  | Easy
@@ -57,10 +59,14 @@
 [leetcode-url_53]: https://leetcode.com/problems/maximum-subarray/description/
 [java_58]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_58
 [leetcode-url_58]: https://leetcode.com/problems/search-insert-position/description/
+[java_66]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_66
+[leetcode-url_66]: https://leetcode.com/problems/plus-one/
 [java_67]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_67
 [leetcode-url_67]: https://leetcode.com/problems/add-binary/description/
 [java_75]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_75
 [java_88]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_88
+[java_118]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_118
+[leetcode-url_118]: https://leetcode.com/problems/pascals-triangle/
 [java_125]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_125
 [leetcode-url_125]: https://leetcode.com/problems/valid-palindrome/
 [java_136]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_136
