@@ -2,15 +2,20 @@ package _167;
 
 public class TwoSumII {
     public int[] twoSum(int[] numbers, int target) {
-        int[] res = new int[2];
-        int i = 0, j = numbers.length - 1;
-        int sum = numbers[i] + numbers[j];
-        while (sum != target) {
-            if (sum > target) j--;
-            else i ++;
-            sum = numbers[i] + numbers[j];
+        return solution1(numbers, target);
+    }
+    private int[] solution1(int[] numbers, int target) {
+        int left = 0, right = numbers.length - 1, sum;
+        while (left < right) {
+            sum = numbers[left] + numbers[right];
+            if (sum == target) {
+                return new int[]{left + 1, right + 1};
+            } else if (sum > target){
+                -- right;
+            } else {
+                ++ left;
+            }
         }
-        res[0] = i + 1; res[1] = j + 1;
-        return res;
+        return null;
     }
 }
