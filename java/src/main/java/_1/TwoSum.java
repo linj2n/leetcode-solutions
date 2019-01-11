@@ -9,9 +9,9 @@ public class TwoSum {
     private int[] solution1(int[] nums, int target) {
         Map<Integer,Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int supplement = target - nums[i];
-            if (map.containsKey(supplement)) {
-                return new int[]{map.get(supplement),i};
+            Integer complementIndex = map.get(target - nums[i]);
+            if (complementIndex != null) {
+                return new int[]{complementIndex,i};
             }
             map.put(nums[i],i);
         }
