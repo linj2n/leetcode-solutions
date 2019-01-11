@@ -13,13 +13,14 @@ public class MajorityElement {
     // solution 1: Using hash table
     public int solution1(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
-        int times = nums.length / 2;
+        int times = nums.length / 2, counts;
         for (int i : nums) {
-            int count = map.containsKey(i) ? map.get(i) + 1 : 1;
-            if (count > times) {
+            Integer oldCounts = map.get(i);
+            counts = (oldCounts != null) ? oldCounts + 1 : 1;
+            if (counts > times) {
                 return i;
             }
-            map.put(i,count);
+            map.put(i,counts);
         }
         return -1;
     }
