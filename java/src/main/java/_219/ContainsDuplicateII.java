@@ -6,15 +6,18 @@ import java.util.Map;
 // Approach #1
 public class ContainsDuplicateII {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        Map<Integer,Integer> hm = new HashMap();
-        for (int i = 0; i < nums.length; i++) {
-            if (!hm.containsKey(nums[i])) {
-                hm.put(nums[i],i);
-            }else {
-                int j = hm.get(nums[i]).intValue();
-                if (k >= i - j) return true;
-                hm.put(nums[j],i);
+        return solution1(nums, k);
+    }
+
+    // solution 1: Using hash table
+    private boolean solution1(int[] nums, int k) {
+        Map<Integer, Integer> indexByValue = new HashMap<>();
+        for (int i = 0; i < nums.length; ++ i) {
+            Integer index = indexByValue.get(nums[i]);
+            if (index != null && (i - index <= k)) {
+                return true;
             }
+            indexByValue.put(nums[i],i);
         }
         return false;
     }
