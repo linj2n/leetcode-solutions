@@ -1,23 +1,21 @@
 package _202;
 
 import java.util.HashSet;
+import java.util.Set;
 
-// Approach #1
 public class HappyNumber {
     public boolean isHappy(int n) {
-        HashSet hs = new HashSet();
-        int sum = 0; 
-        while (n != 1) {
-            sum = 0;
-            while (n != 0) {
-                int digit = n % 10;
-                sum += digit * digit;
-                n = n / 10;
+        Set<Integer> set = new HashSet<>();
+        while (set.add(n)) {
+            int sum, temp;
+            for (sum = 0, temp = n; temp != 0; temp /= 10) {
+                sum += Math.pow(temp % 10,2);
             }
-            if (hs.contains(sum)) return false;
-            else hs.add(sum);
+            if (sum == 1) {
+                return true;
+            }
             n = sum;
         }
-        return true;
+        return false;
     }
 }
