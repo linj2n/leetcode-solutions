@@ -1,6 +1,6 @@
 package _28;
 
-public class implement_strStr {
+public class Implement_strStr {
     public int strStr(String haystack, String needle) {
         if (needle.length() == 0) {
             return 0;
@@ -8,7 +8,7 @@ public class implement_strStr {
         if (haystack.length() == needle.length()) {
             return haystack.equals(needle) ? 0 : -1;
         }
-        int beginIndex = 0; 
+        int beginIndex = 0;
         while ((haystack.length() - beginIndex) >= needle.length()) {
             int j = beginIndex, k = 0;
             while (k < needle.length() && haystack.charAt(j) == needle.charAt(k)) {
@@ -20,5 +20,5 @@ public class implement_strStr {
             beginIndex ++;
         }
         return -1;
-    }   
+    }
 }
