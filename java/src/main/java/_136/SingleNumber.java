@@ -22,9 +22,9 @@ class SingleNumber {
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             Integer count = map.get(num);
-            map.put(num,(count == null) ? 1 : count + 1);
+            map.put(num, (count == null) ? 1 : count + 1);
         }
-    
+
         for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
             if (entry.getValue() == 1) {
                 return entry.getKey();
