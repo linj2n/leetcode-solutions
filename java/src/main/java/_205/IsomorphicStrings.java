@@ -6,6 +6,8 @@ public class IsomorphicStrings{
     public boolean isIsomorphic(String s, String t) {
         return solution1(s, t);
     }
+
+    // solution 1: 
     private boolean solution1(String s, String t) {
         return s.length() == t.length() &&
                 convertToPattern(s).equals(convertToPattern(t));
