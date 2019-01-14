@@ -2,51 +2,47 @@ package _205;
 
 import java.util.HashMap;
 
-// Approach #1
-// Runtime: 23 ms
 public class IsomorphicStrings{
-    public String convertToPatternStr(String s) {
-        HashMap<Character,Integer> sh = new HashMap<>();
+    public boolean isIsomorphic(String s, String t) {
+        return solution1(s, t);
+    }
+    private boolean solution1(String s, String t) {
+        return s.length() == t.length() &&
+                convertToPattern(s).equals(convertToPattern(t));
+    }
+
+    private String convertToPattern(String str) {
+        int[] set = new int[256];
+        int id = 1;
         StringBuilder sb = new StringBuilder();
-        int id = 0;
-        for (char c: s.toCharArray()) {
-            if (!sh.containsKey(c)) {
-                sh.put(c,id); sb.append(id++);
-            } else {
-                sb.append(sh.get(c).intValue());
+        for (char ch : str.toCharArray()) {
+            if (set[ch] == 0) {
+                set[ch] = id ++;
             }
+            sb.append(set[ch]);
         }
         return sb.toString();
     }
-    public boolean isIsomorphic(String s, String t) {
-        String str1 = convertToPatternStr(s);
-        String str2 = convertToPatternStr(t);
-        return str1.equals(str2);
+
+    private boolean solution2(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        char[] char1 = s.toCharArray();
+        char[] char2 = t.toCharArray();
+        int code1 = 1, code2 = 1;
+        int[] set1 = new int[256];
+        int[] set2 = new int[256];
+        for (int i = 0; i < char1.length; i ++) {
+            char digit1 = char1[i];
+            char digit2 = char2[i];
+            set1[digit1] = (set1[digit1] == 0) ? code1 ++ : set1[digit1];
+            set2[digit2] = (set2[digit2] == 0) ? code2 ++ : set2[digit2];
+            if (code1 != code2 || set1[digit1] != set2[digit2]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
-// Approach #2 
-// Runtime: 6 ms
-//class Solution1 {
-//    public boolean isIsomorphic(String s, String t) {
-//
-//        if(s.length() == 0) return true;
-//
-//        int[] charValueOfS = new int[128];
-//        int[] charValueOfT = new int[128];
-//        boolean resFlag = true;
-//
-//        int patternNum = 1,arrayLen = s.length();
-//        for (int i = 0; i < arrayLen; i++) {
-//            char currCharOfS = s.charAt(i);
-//            char currCharOfT = t.charAt(i);
-//            if (charValueOfT[currCharOfT] != charValueOfS[currCharOfS]) {
-//                resFlag = false; break;
-//            }
-//            charValueOfS[currCharOfS] = patternNum;
-//            charValueOfT[currCharOfT] = patternNum;
-//            patternNum ++;
-//        }
-//        return resFlag;
-//    }
-//}
