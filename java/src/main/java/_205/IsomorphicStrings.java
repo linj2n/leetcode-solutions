@@ -7,7 +7,7 @@ public class IsomorphicStrings{
         return solution1(s, t);
     }
 
-    // solution 1: 
+    // solution 1:
     private boolean solution1(String s, String t) {
         return s.length() == t.length() &&
                 convertToPattern(s).equals(convertToPattern(t));
