@@ -1,6 +1,6 @@
 # Solution List
 
-:construction: : **30/300**
+:construction: : **37/300**
 
 | #    | Title                                                          | Solution                         | Difficulty                       |
 | :--- | :------------------------------------------------------------- | :------------------------------- | :------------------------------- |
@@ -23,16 +23,23 @@
 | 75   | [Sort Colors ][leetcode-url]                                   | [java][java_75] | Medium
 | 88   | [Merge Sorted Array ][leetcode-url]                            | [java][java_88] | Easy
 | 118  | [Pascal's Triangle][leetcode-url_118]                          | [java][java_118] | Easy
+| 119  | [Pascal's Triangle II][leetcode-url_119]                       | [java][java_119] | Easy
 | 125  | [Valid Palindrome ][leetcode-url_125]                          | [java][java_125] | Easy
 | 136  | [Single Number ][leetcode-url]                                 | [java][java_136] | Easy
 | 147  | [Insertion Sort List   ][leetcode-url]                         | [java][java_147] | Medium
 | 148  | [Sort List  ][leetcode-url]                                    | [java][java_148] | Medium
 | 167  | [Two Sum II - Input array is sorted   ][leetcode-url]          | [java][java_167]  | Easy
-| 202  | [Happy Number    ][leetcode-url]                               | [java][java_202]  | Easy
+| 169  | [Majority Element ][leetcode-url_169]                          | [java][java_169]  | Easy
+| 189  | [Rotate Array ][leetcode-url_189]                              | [java][java_189]  | Easy
+| 202  | [Happy Number ][leetcode-url]                                  | [java][java_202]  | Easy
+| 204  | [Happy Number ][leetcode-url_204]                              | [java][java_204]  | Easy
 | 205  | [Isomorphic Strings ][leetcode-url]                            | [java][java_205]  | Easy
 | 217  | [Contains Duplicate][leetcode-url]                             | [java][java_217]  | Easy
 | 219  | [Contains Duplicate II ][leetcode-url]                         | [java][java_219]  | Easy
 | 242  | [Valid Anagram ][leetcode-url]                                 | [java][java_242]  | Easy
+| 283  | [Move Zeroes   ][leetcode-url_283]                             | [java][java_283]  | Easy
+| 268  | [Valid Anagram ][leetcode-url_268]                             | [java][java_268]  | Easy
+| 290  | [Word Pattern ][leetcode-url_290]                              | [java][java_290]  | Easy
 
 [leetcode-url]: https://leetcode.com/problemset/all/
 [java_1]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_1
@@ -67,14 +74,28 @@
 [java_88]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_88
 [java_118]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_118
 [leetcode-url_118]: https://leetcode.com/problems/pascals-triangle/
+[java_119]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_119
+[leetcode-url_119]: https://leetcode.com/problems/pascals-triangle-ii/
 [java_125]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_125
 [leetcode-url_125]: https://leetcode.com/problems/valid-palindrome/
 [java_136]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_136
 [java_147]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_147
 [java_148]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_148
 [java_167]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_167
+[java_169]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_169
+[leetcode-url_169]: https://leetcode.com/problems/majority-element
+[java_189]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_189
+[leetcode-url_189]: https://leetcode.com/problems/rotate-array
 [java_202]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_202
+[java_204]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_204
+[leetcode-url_204]: https://leetcode.com/problems/count-primes
 [java_205]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_205
 [java_217]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_217
 [java_219]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_219
 [java_242]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_242
+[java_283]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_242
+[leetcode-url_283]: https://leetcode.com/problems/move-zeroes
+[java_268]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_268
+[leetcode-url_268]: https://leetcode.com/problems/missing-number
+[java_290]: https://github.com/linj2n/LeetCode/tree/master/java/src/main/java/_290
+[leetcode-url_290]: https://leetcode.com/problems/word-pattern
