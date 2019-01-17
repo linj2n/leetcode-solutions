@@ -2,14 +2,15 @@ package _94;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        return recursiveTravel(root, list);
+        return recursiveTravel(root);
     }
     // solution 1: Recursion
-    private List<Integer> recursiveTravel(TreeNode root, List<Integer> list) {
+    private List<Integer> recursiveTravel(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
         inorderTraversal(root, list);
         return list;
     }
@@ -20,6 +21,25 @@ public class BinaryTreeInorderTraversal {
         inorderTraversal(root.left, list);
         list.add(root.val);
         inorderTraversal(root.right, list);
+    }
+
+    // solution 2: Using stack
+    public List<Integer> travelByStack(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root != null) {
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode curr = root;
+            while (!stack.isEmpty() || curr != null) {
+                while (curr != null) {
+                    stack.push(curr);
+                    curr = curr.left;
+                }
+                curr = stack.pop();
+                list.add(curr.val);
+                curr = curr.right;
+            }
+        }
+        return list;
     }
 }
 
