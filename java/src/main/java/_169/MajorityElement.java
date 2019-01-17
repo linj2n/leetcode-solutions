@@ -22,7 +22,7 @@ public class MajorityElement {
             }
             map.put(i,counts);
         }
-        return -1;
+        throw new RuntimeException("Invalid input");
     }
 
     // solution 2: Using Sorting
