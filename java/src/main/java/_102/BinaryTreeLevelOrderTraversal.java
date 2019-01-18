@@ -9,14 +9,14 @@ import java.util.Queue;
 
 class BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> lists = new ArrayList<>();
+        List<List<Integer>> rows = new ArrayList<>();
         if (root == null) {
-            return lists;
+            return rows;
         }
         Queue<TreeNode> queue = new LinkedList<>();
-        TreeNode last = root, nextLast = null;
-        List<Integer> list = new ArrayList<>();
         queue.add(root);
+        TreeNode last = root, nextLast = null;
+        List<Integer> row = new ArrayList<>();
         while (!queue.isEmpty()) {
             TreeNode curr = queue.remove();
             if (curr.left != null) {
@@ -27,13 +27,13 @@ class BinaryTreeLevelOrderTraversal {
                 queue.add(curr.right);
                 nextLast = curr.right;
             }
-            list.add(curr.val);
+            row.add(curr.val);
             if (curr == last) {
-                lists.add(list);
-                list = new ArrayList<>();
+                rows.add(row);
+                row = new ArrayList<>();
                 last = nextLast;
             }
         }
-        return lists;
+        return rows;
     }
 }
