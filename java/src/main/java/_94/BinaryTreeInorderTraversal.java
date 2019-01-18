@@ -3,28 +3,29 @@ package _94;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import support.TreeNode;
 
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
-        return recursiveTravel(root);
+        return travelRecursively(root);
     }
     // solution 1: Recursion
-    private List<Integer> recursiveTravel(TreeNode root) {
+    private List<Integer> travelRecursively(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        inorderTraversal(root, list);
+        travelRecursively(root, list);
         return list;
     }
-    private void inorderTraversal(TreeNode root, List<Integer> list) {
+    private void travelRecursively(TreeNode root, List<Integer> list) {
         if (root == null) {
             return ;
         }
-        inorderTraversal(root.left, list);
+        travelRecursively(root.left, list);
         list.add(root.val);
-        inorderTraversal(root.right, list);
+        travelRecursively(root.right, list);
     }
 
     // solution 2: Using stack
-    public List<Integer> travelByStack(TreeNode root) {
+    public List<Integer> travelIteratively(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root != null) {
             Stack<TreeNode> stack = new Stack<>();
@@ -43,12 +44,3 @@ public class BinaryTreeInorderTraversal {
     }
 }
 
-/* Definition for a binary tree node. */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) {
-        this.val = x;
-    }
-}
