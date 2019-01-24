@@ -3,6 +3,9 @@ package _297;
 import support.TreeNode;
 
 public class SerializeAndDeserializeBinaryTree {
+
+    private int index;
+
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if (root == null) {
@@ -14,19 +17,18 @@ public class SerializeAndDeserializeBinaryTree {
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
         char[] dataChars = data.toCharArray();
-        int[] index = new int[1];
-        return doDeserialize(dataChars, index);
+        return doDeserialize(dataChars);
     }
-    private TreeNode doDeserialize(char[] data, int[] index) {
-        if (index[0] >= data.length) {
+    private TreeNode doDeserialize(char[] data) {
+        if (index >= data.length) {
             return null;
         }
-        int k = index[0];
+        int k = index;
         while (data[k] == ' ') {
             k ++;
         }
         if (data[k] == '#') {
-            index[0] = k + 2;
+            index = k + 2;
             return null;
         }
         int val = 0;
@@ -41,9 +43,9 @@ public class SerializeAndDeserializeBinaryTree {
         }
         val = (isNegativeNumber) ? -val : val;
         TreeNode node = new TreeNode(val);
-        index[0] = ++ k;
-        node.left = doDeserialize(data, index);
-        node.right = doDeserialize(data, index);
+        index = ++ k;
+        node.left = doDeserialize(data);
+        node.right = doDeserialize(data);
         return node;
     }
 }
