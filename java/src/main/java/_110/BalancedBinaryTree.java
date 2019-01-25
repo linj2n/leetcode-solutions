@@ -29,29 +29,26 @@ public class BalancedBinaryTree {
     }
 
     // solution 2: Postorder traversal
-    private boolean solution2(TreeNode root) {
-        boolean[] result = new boolean[1];
-        result[0] = true;
-        treeDepth(root, 0, result);
-        return result[0];
-    }
-    private int treeDepth(TreeNode root, int level, boolean[] result) {
+    private boolean result = true;
+    public boolean solution2(TreeNode root) {
         if (root == null) {
-            return level;
+            return result;
         }
-        int leftHeight = treeDepth(root.left, level + 1, result);
-        if (result[0] == false) {
-            return level;
+        doCheck(root);
+        return result;
+    }
+    private int doCheck(TreeNode root) {
+        if (!result) {
+            return 1;
         }
-
-        int rightHeight = treeDepth(root.right, level + 1, result);
-        if (result[0] == false) {
-            return level;
+        if (root == null) {
+            return 0;
         }
-
-        if (Math.abs(leftHeight - rightHeight) > 1) {
-            result[0] = false;
+        int leftDepth = doCheck(root.left);
+        int rightDepth = doCheck(root.right);
+        if (Math.abs(rightDepth - leftDepth) > 1) {
+            result = false;
         }
-        return Math.max(leftHeight, rightHeight);
+        return Math.max(rightDepth, leftDepth) + 1;
     }
 }
