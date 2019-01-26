@@ -13,7 +13,8 @@ public class RemoveDuplicatesFromSortedList {
                 l2 = l2.next;
             }
             l1.next = l2;
-            l1 = (l2 != null) ? l2 : null;
+
+            l1 = l1.next;
             l2 = (l2 != null) ? l2.next : null;
         }
         return head;
