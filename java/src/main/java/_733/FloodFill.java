@@ -33,6 +33,7 @@ public class FloodFill {
         Deque<Point> deque = new ArrayDeque<>();
         deque.addLast(new Point(sr, sc));
         isVisited[sr][sc] = true;
+
         while (!deque.isEmpty()) {
             Point curr = deque.removeFirst();
             int oldColor = image[curr.r][curr.c];
