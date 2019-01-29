@@ -8,62 +8,53 @@ import java.util.Deque;
  1 1 0       2 2 0
  1 0 1       2 0 2
 */
+
 public class FloodFill {
-    int[] dx = new int[]{-1, 0, 1, 0};
-    int[] dy = new int[]{0, 1, 0, -1};
-
-    class Point {
-        int r;
-        int c;
-
-        Point(int r, int c) {
-            this.r = r;
-            this.c = c;
-        }
-    }
-
+    int[] dx = {-1, 0, 1, 0}, dy = {0, 1, 0, -1};
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        return bfs(image, sr, sc, newColor);
-    }
-
-    // BFS
-    private int[][] bfs(int[][] image, int sr, int sc, int newColor) {
-        boolean[][] isVisited = new boolean[image.length][image[0].length];
-
-        Deque<Point> deque = new ArrayDeque<>();
-        deque.addLast(new Point(sr, sc));
-        isVisited[sr][sc] = true;
-
-        while (!deque.isEmpty()) {
-            Point curr = deque.removeFirst();
-            int oldColor = image[curr.r][curr.c];
-            image[curr.r][curr.c] = newColor;
-            for (int i = 0; i < 4; i ++) {
-                int row = curr.r + dx[i], col = curr.c + dy[i];
-                if (row >= 0 && row < image.length && col >= 0 && col < image[0].length
-                        && image[row][col] == oldColor
-                        && !isVisited[row][col]) {
-                    deque.addLast(new Point(row, col));
-                    isVisited[row][col] = true;
-                }
-            }
+        if (image == null || image.length == 0 || image[0].length == 0) {
+            return image;
         }
+        int height = image.length, width = image[0].length;
+        bfs(image, sr, sc, newColor);
         return image;
     }
 
     // DFS
-    private int[][] dfs(int[][] image, int sr, int sc, int newColor) {
-        if (image[sr][sc] == newColor) {
-            return image;
+    private void dfs(int[][] image, int row, int col, int newColor) {
+        if (image[row][col] == newColor) {
+            return ;
         }
-        int oldColor = image[sr][sc];
-        image[sr][sc] = newColor;
+        int oldColor = image[row][col];
+        image[row][col] = newColor;
         for (int i = 0; i < 4; i ++) {
-            int x = sr + dx[i], y = sc + dy[i];
-            if (x >= 0 && x < image.length && y >= 0 && y < image[0].length && image[x][y] == oldColor) {
-                dfs(image, x, y, newColor);
+            int nRow = row + dx[i], nCol = col + dy[i];
+            if (nRow >= 0 && nRow< image.length && nCol >= 0 && nCol < image[0].length && image[nRow][nCol] == oldColor) {
+                dfs(image, nRow, nCol, newColor);
             }
         }
-        return image;
+    }
+
+    // BFS
+    private void bfs(int[][]image, int row, int col, int newColor) {
+        if (image[row][col] == newColor) {
+            return ;
+        }
+        Deque<Integer> xDeque = new ArrayDeque<Integer>(), yDeque = new ArrayDeque<Integer>();
+        xDeque.addLast(row);
+        yDeque.addLast(col);
+        int oldColor = image[row][col];
+        image[row][col] = newColor;
+        while (!xDeque.isEmpty()) {
+            int x = xDeque.removeFirst(), y = yDeque.removeFirst();
+            for (int i = 0; i < 4; i ++) {
+                int nRow = x + dx[i], nCol = y + dy[i];
+                if (nRow >= 0 && nRow < image.length && nCol >= 0 && nCol < image[0].length && image[nRow][nCol] == oldColor) {
+                    xDeque.addLast(nRow);
+                    yDeque.addLast(nCol);
+                    image[nRow][nCol] = newColor;
+                }
+            }
+        }
     }
 }
