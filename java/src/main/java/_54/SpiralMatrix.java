@@ -16,18 +16,18 @@ public class SpiralMatrix {
         int height = matrix.length, width = matrix[0].length;
         boolean[][] isVisited = new boolean[height][width];
         for (int i = 0; i < height && i < width && !isVisited[i][i]; i ++) {
-            int sr = i, sc = i;
-            list.add(matrix[sr][sc]);
-            isVisited[sr][sc] = true;
+            int x = i, y = i;
+            list.add(matrix[x][y]);
+            isVisited[x][y] = true;
             for (int t = 0; t < 4; t ++) {
-                int nSr = sr + dx[t], nSc = sc + dy[t];
-                while (nSr >= 0 && nSr < height && nSc >= 0 && nSc < width && !isVisited[nSr][nSc]) {
-                    sr = nSr;
-                    sc = nSc;
-                    list.add(matrix[sr][sc]);
-                    isVisited[sr][sc] = true;
-                    nSr += dx[t];
-                    nSc += dy[t];
+                int nx = x + dx[t], ny = y + dy[t];
+                while (nx >= 0 && nx < height && ny >= 0 && ny < width && !isVisited[nx][ny]) {
+                    x = nx;
+                    y = ny;
+                    list.add(matrix[x][y]);
+                    isVisited[x][y] = true;
+                    nx += dx[t];
+                    ny += dy[t];
                 }
             }
         }
