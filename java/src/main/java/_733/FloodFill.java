@@ -12,7 +12,7 @@ import java.util.Deque;
 public class FloodFill {
     int[] dx = {-1, 0, 1, 0}, dy = {0, 1, 0, -1};
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        if (image == null || image.length == 0 || image[0].length == 0) {
+        if (image == null || image.length == 0 || image[0].length == 0 || image[sr][sc] == newColor) {
             return image;
         }
         int height = image.length, width = image[0].length;
@@ -22,9 +22,6 @@ public class FloodFill {
 
     // DFS
     private void dfs(int[][] image, int row, int col, int newColor) {
-        if (image[row][col] == newColor) {
-            return ;
-        }
         int oldColor = image[row][col];
         image[row][col] = newColor;
         for (int i = 0; i < 4; i ++) {
@@ -37,9 +34,6 @@ public class FloodFill {
 
     // BFS
     private void bfs(int[][]image, int row, int col, int newColor) {
-        if (image[row][col] == newColor) {
-            return ;
-        }
         Deque<Integer> xDeque = new ArrayDeque<Integer>(), yDeque = new ArrayDeque<Integer>();
         xDeque.addLast(row);
         yDeque.addLast(col);
