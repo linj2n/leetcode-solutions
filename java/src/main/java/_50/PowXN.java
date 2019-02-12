@@ -2,16 +2,15 @@ package _50;
 
 public class PowXN {
     public double myPow(double x, int n) {
-        if (x == 0) {
-            return 0;
+        double res = 1;
+        long absOfN = Math.abs((long)n);
+        while (absOfN != 0) {
+            if ((absOfN & 1) != 0) {
+                res *= x;
+            }
+            absOfN >>= 1;
+            x *= x;
         }
-        if (n == 0) {
-            return 1;
-        }
-        double result = 1;
-        for (int i = 0; i < Math.abs(n); i ++) {
-            result *= x;
-        }
-        return (n > 0) ? result : (1 / result);
+        return (n > 0) ? res : (1 / res);
     }
 }
