@@ -5,33 +5,35 @@ import java.util.List;
 
 public class Subsets {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> sets = new ArrayList<>();
+        List<List<Integer>> lists = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         if (nums == null) {
             return null;
         }
         if (nums.length == 0) {
-            sets.add(new ArrayList<>());
-            return sets;
+            lists.add(list);
+            return lists;
         }
-        boolean[] seleted = new boolean[nums.length];
-        dfs(0, nums, seleted, sets);
-        return sets;
+        dfs_2(0, nums, lists, list);
+        return lists;
     }
-    private void dfs(int u, int[] nums, boolean[] selected, List<List<Integer>> sets) {
-        if (u == nums.length) {
-            List<Integer> set = new ArrayList<>();
-            for (int i = 0; i < selected.length; i ++) {
-                if (selected[i]) {
-                    set.add(nums[i]);
-                }
-            }
-            sets.add(set);
+    private void dfs_1(int k, int[] nums, List<List<Integer>> lists, List<Integer> list) {
+        if (k == nums.length) {
+            lists.add(new ArrayList<>(list));
             return ;
         }
-        selected[u] = true;
-        dfs(u + 1, nums, selected, sets);
-        selected[u] = false;
-        dfs(u + 1, nums, selected, sets);
+        list.add(nums[k]);
+        dfs_1(k + 1, nums, lists, list);
+        list.remove(list.size() - 1);
+        dfs_1(k + 1, nums, lists, list);
+    }
+    private void dfs_2(int i, int[] nums, List<List<Integer>> lists, List<Integer> list) {
+        lists.add(new ArrayList<>(list));
+        for (int t = i; t < nums.length; t ++) {
+            list.add(nums[t]);
+            dfs_2(t + 1, nums, lists, list);
+            list.remove(list.size() - 1);
+        }
     }
 }
 

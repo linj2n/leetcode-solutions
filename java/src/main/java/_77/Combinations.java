@@ -4,36 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Combinations {
-    private int n;
-    private int k;
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> sets = new ArrayList<>();
-        this.n = n;
-        this.k = k;
-        boolean[] selected = new boolean[n];
-        dfs(0, 0, sets, selected);
-        return sets;
+        List<List<Integer>> lists = new ArrayList<>();
+        if (n <= 0 || k <= 0) {
+            return null;
+        }
+        if (k > n) {
+            return lists;
+        }
+        dfs(1, k, n, lists, new ArrayList<>());
+        return lists;
     }
-    private void dfs(int u, int nums, List<List<Integer>> sets, boolean[] selected) {
-        if (n < k) {
-            return ;
+    private void dfs(int i, int k, int n, List<List<Integer>> lists, List<Integer> list) {
+        if (list.size() == k) {
+            lists.add(new ArrayList<>(list));
         }
-        if (nums == k) {
-            List<Integer> set = new ArrayList<>();
-            for (int i = 0; i < n; i ++) {
-                if (selected[i]) {
-                    set.add(i + 1);
-                }
-            }
-            sets.add(set);
-            return ;
+        for (int t = i; t <= n; t ++) {
+            list.add(t);
+            dfs(t + 1, k, n, lists, list);
+            list.remove(list.size() - 1);
         }
-        if (u == n) {
-            return ;
-        }
-        selected[u] = true;
-        dfs(u + 1, nums + 1, sets, selected);
-        selected[u] = false;
-        dfs(u + 1, nums, sets, selected);
     }
 }
