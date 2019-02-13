@@ -18,6 +18,7 @@ public class Combinations {
     private void dfs(int i, int k, int n, List<List<Integer>> lists, List<Integer> list) {
         if (list.size() == k) {
             lists.add(new ArrayList<>(list));
+            return ;
         }
         for (int t = i; t <= n; t ++) {
             list.add(t);
