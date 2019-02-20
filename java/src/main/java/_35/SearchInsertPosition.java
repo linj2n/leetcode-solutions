@@ -2,39 +2,40 @@ package _35;
 
 class SearchInsertPosition {
     public int searchInsert(int[] nums, int target) {
-        if (nums == null) return -1;
-        return solution3(nums,target);
+        return solution2(nums, target);
     }
+
+    // [mid + 1, r], [l, mid]
     private int solution1(int[] nums, int target) {
-        int i = 0; 
-        for (; i < nums.length && target > nums[i]; i ++) {}
-        return i; 
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] >= target) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        if (nums[l] >= target) {
+            return l;
+        }
+        return l + 1;
     }
-    // bug free edition
+
+    // [l, mid - 1], [mid, r]
     private int solution2(int[] nums, int target) {
-        int first = 0, last = nums.length;
-        while (first < last) {
-            int mid = first + (last - first) / 2;
-            if (target == nums[mid]) {
-                return mid;
-            } else if (target > nums[mid]) {
-                first = mid + 1;
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2 + 1;
+            if (nums[mid] <= target) {
+                l = mid;
             } else {
-                last = mid;
+                r = mid - 1;
             }
         }
-        return first;
+        if (nums[l] >= target) {
+            return l;
+        }
+        return l + 1;
     }
-    private int solution3(int[] nums, int target) {
-        if (nums == null) return -1;
-        int beg = 0, end = nums.length - 1;
-        while (beg < end) {
-            int mid = beg + (end - beg) / 2;
-            if (nums[mid] < target) {
-                beg = mid + 1;
-            } else {
-                end = mid;
-            }
-        }
-        return (target > nums[beg]) ? beg + 1 : beg; 
-    }}
+}
