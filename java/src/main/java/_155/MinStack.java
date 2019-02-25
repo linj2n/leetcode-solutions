@@ -3,31 +3,25 @@ package _155;
 import java.util.Stack;
 
 class MinStack {
-    private Stack<Integer> stack ;
-    private Stack<Integer> cache ;
-    private int min ;
+
+    private Stack<Integer> stack = new Stack<>();
+    private Stack<Integer> monotStack = new Stack<>();
     /** initialize your data structure here. */
     public MinStack() {
-        stack = new Stack<>();
-        cache = new Stack<>();
-        min = Integer.MAX_VALUE;
+
     }
 
     public void push(int x) {
+        if (stack.isEmpty() || monotStack.peek() >= x) {
+            monotStack.push(x);
+        }
         stack.push(x);
-        min = Math.min(x, min);
     }
 
     public void pop() {
-        if (min == stack.pop()) {
-            min = Integer.MAX_VALUE;
-            while (!stack.isEmpty()) {
-                min = Math.min(stack.peek(), min);
-                cache.push(stack.pop());
-            }
-            while (!cache.isEmpty()) {
-                stack.push(cache.pop());
-            }
+        // 判断条件写成 monotStack.peek() == stack.pop() 会出错
+        if (monotStack.peek().equals(stack.pop())) {
+            monotStack.pop();
         }
     }
 
@@ -36,7 +30,7 @@ class MinStack {
     }
 
     public int getMin() {
-        return min;
+        return monotStack.peek();
     }
 }
 
