@@ -1,8 +1,8 @@
-package _297;
+package _297_SerializeAndDeserializeBinaryTree;
 
 import support.TreeNode;
 
-public class SerializeAndDeserializeBinaryTree {
+public class Solution1 {
 
     private int index;
 
