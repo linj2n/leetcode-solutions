@@ -5,7 +5,7 @@ import support.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
 
-class ConstructBinaryTreeFromPreorderAndInorderTraversal {
+public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if (preorder == null || inorder == null) {
             return null;
