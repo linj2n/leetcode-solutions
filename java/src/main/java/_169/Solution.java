@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MajorityElement {
+public class Solution {
     public int majorityElement(int[] nums) {
-        return majorityElement(nums,0,nums.length - 1);
+        return solution5(nums);
     }
 
     // solution 1: Using hash table
@@ -60,6 +60,45 @@ public class MajorityElement {
         return countValue1 > countValue2 ? value1 : value2;
     }
 
-    // TODO: solution 4: Bit manipulation
+    // TODO: solution :Bit manipulation
 
+    // solution 4: partition and binary search
+    private int solution5(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int l = 0, r = nums.length - 1, k = nums.length / 2, mid = 0;
+        while (mid != k) {
+            mid = partition(nums, l, r);
+            if (mid > k){
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return nums[mid];
+    }
+    private int partition(int[] nums, int first, int last) {
+        if (first >= last) {
+            return first;
+        }
+        int i = first, j = last;
+        int pivot = nums[first];
+        while (i < j) {
+            while (i < j && nums[j] >= pivot) {
+                j --;
+            }
+            if (i < j) {
+                nums[i] = nums[j];
+            }
+            while (i < j && nums[i] < pivot) {
+                i ++;
+            }
+            if (i < j) {
+                nums[j] = nums[i];
+            }
+        }
+        nums[i] = pivot;
+        return i;
+    }
 }
