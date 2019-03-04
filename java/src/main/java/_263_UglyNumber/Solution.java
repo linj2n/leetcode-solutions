@@ -1,4 +1,4 @@
-package _263_uglyNumber;
+package _263_UglyNumber;
 
 public class Solution {
     public boolean isUgly(int num) {
