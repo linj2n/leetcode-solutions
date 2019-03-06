@@ -9,7 +9,7 @@ public class Solution {
     // Solution1: BFS
     private int solution1(int n) {
         int[] dist = new int[n + 1];
-        Arrays.fill(dist, Integer.MAX_VALUE);   // dist 数组表示所有的点到 0 的距离，初始值为 MAX_VALUE，表示无穷大
+        Arrays.fill(dist, Integer.MAX_VALUE);   
         dist[0] = 0;
         Deque<Integer> deque = new ArrayDeque<>();
         deque.addFirst(0);
