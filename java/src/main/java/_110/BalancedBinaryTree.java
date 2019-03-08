@@ -51,4 +51,20 @@ public class BalancedBinaryTree {
         }
         return Math.max(rightDepth, leftDepth) + 1;
     }
+    // Another solution to postorder-traversal
+    private int doCheck(TreeNode root, int depth) {
+        if (!result) {
+            return Integer.MAX_VALUE;
+        }
+        if (root == null) {
+            return depth;
+        }
+        int leftDepth = (root.left == null) ? depth : doCheck(root.left, depth + 1);
+        int rightDepth = (root.right == null) ? depth : doCheck(root.right, depth + 1);
+        if (Math.abs(leftDepth - rightDepth) > 1) {
+            result = false;
+        }
+        return Math.max(leftDepth, rightDepth);
+    }
+
 }
