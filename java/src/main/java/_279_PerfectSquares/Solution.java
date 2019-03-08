@@ -9,7 +9,7 @@ public class Solution {
     // Solution1: BFS
     private int solution1(int n) {
         int[] dist = new int[n + 1];
-        Arrays.fill(dist, Integer.MAX_VALUE);   
+        Arrays.fill(dist, Integer.MAX_VALUE);
         dist[0] = 0;
         Deque<Integer> deque = new ArrayDeque<>();
         deque.addFirst(0);
