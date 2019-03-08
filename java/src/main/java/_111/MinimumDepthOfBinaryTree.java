@@ -41,18 +41,12 @@ public class MinimumDepthOfBinaryTree {
     }
 
     // DFS
-    private int dfs(TreeNode root, int count) {
+    private int dfs(TreeNode root, int depth) {
         if (root.left == null && root.right == null) {
-            return count;
+            return depth;
         }
-        int leftCount = Integer.MAX_VALUE;
-        if (root.left != null) {
-            leftCount = dfs(root.left, count + 1);
-        }
-        int rightCount = Integer.MAX_VALUE;
-        if (root.right != null) {
-            rightCount = dfs(root.right, count + 1);
-        }
-        return Math.min(leftCount, rightCount);
+        int leftDepth = (root.left == null) ? Integer.MAX_VALUE : dfs(root.left, depth + 1);
+        int rightDepth = (root.right == null) ? Integer.MAX_VALUE : dfs(root.right, depth + 1);
+        return Math.min(leftDepth, rightDepth);
     }
 }
