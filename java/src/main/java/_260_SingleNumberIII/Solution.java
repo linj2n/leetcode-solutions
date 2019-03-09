@@ -11,14 +11,14 @@ public class Solution {
     // Solution 1: Using Map
     // Time : O(n), Space: O(n)
     private int[] solution1(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> timesByValue = new HashMap<>();
         for (int i : nums) {
-            Integer times = map.get(i);
-            map.put(i, times == null ? 1 : times + 1);
+            Integer times = timesByValue.get(i);
+            timesByValue.put(i, times == null ? 1 : times + 1);
         }
         int[] res = new int[2];
         int i = 0;
-        for (Map.Entry<Integer, Integer> e : map.entrySet()) {
+        for (Map.Entry<Integer, Integer> e : timesByValue.entrySet()) {
             if (e.getValue().equals(1)) {
                 res[i++] = e.getKey();
             }
