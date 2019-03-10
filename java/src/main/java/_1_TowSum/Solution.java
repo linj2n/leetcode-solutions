@@ -1,8 +1,8 @@
-package _1;
+package _1_TowSum;
 
 import java.util.*;
 
-public class TwoSum {
+public class Solution {
     public int[] twoSum(int[] nums, int target) {
         return calculByDFS(nums, target);
     }
