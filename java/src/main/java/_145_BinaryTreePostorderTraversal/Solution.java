@@ -1,4 +1,4 @@
-package _145;
+package _145_BinaryTreePostorderTraversal;
 
 import support.TreeNode;
 
@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-class BinaryTreePostorderTraversal {
+class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         return travelIteratively(root);
     }
@@ -30,23 +30,26 @@ class BinaryTreePostorderTraversal {
 
     // solution 2: Iterating
     private List<Integer> travelIteratively(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> nodes = new ArrayList<>();
         if (root == null) {
-            return list;
+            return nodes;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            root = stack.pop();
-            if (root.left != null) {
-                stack.push(root.left);
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<TreeNode> s2 = new Stack<>();
+        s1.push(root);
+        while (!s1.isEmpty()) {
+            TreeNode curr = s1.pop();
+            s2.push(curr);
+            if (curr.left != null) {
+                s1.push(curr.left);
             }
-            if (root.right != null) {
-                stack.push(root.right);
+            if (curr.right != null) {
+                s1.push(curr.right);
             }
-            list.add(root.val);
         }
-        Collections.reverse(list);
-        return list;
+        while (!s2.isEmpty()) {
+            nodes.add(s2.pop().val);
+        }
+        return nodes;
     }
 }
