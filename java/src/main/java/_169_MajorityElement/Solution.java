@@ -1,4 +1,4 @@
-package _169;
+package _169_MajorityElement;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ public class Solution {
     // solution 1: Using hash table
     public int solution1(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
-        int times = nums.length / 2, counts;
+        int times = nums.length / 2, counts = 0;
         for (int i : nums) {
             Integer oldCounts = map.get(i);
             counts = (oldCounts != null) ? oldCounts + 1 : 1;
@@ -25,7 +25,7 @@ public class Solution {
         throw new RuntimeException("Invalid input");
     }
 
-    // solution 2: Using Sorting
+    // solution 2: Sort
     public int solution2(int[] nums) {
         Arrays.sort(nums);
         return nums[nums.length / 2];
@@ -62,44 +62,42 @@ public class Solution {
 
     // TODO: solution :Bit manipulation
 
-    // solution 4: partition and binary search
+    // solution 4: Quick select
     private int solution4(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
-        int l = 0, r = nums.length - 1, k = nums.length / 2, mid = 0;
-        while (mid != k) {
-            mid = partition(nums, l, r);
-            if (mid > k){
-                r = mid - 1;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return nums[mid];
+        return quickSelect(nums, nums.length / 2);
     }
-    private int partition(int[] nums, int first, int last) {
-        if (first >= last) {
-            return first;
+    private int quickSelect(int[] nums, int k) {
+        if (nums.length == 0 || nums.length == 1) {
+            return nums[0];
         }
-        int i = first, j = last;
-        int pivot = nums[first];
-        while (i < j) {
-            while (i < j && nums[j] >= pivot) {
-                j --;
+        int lo = 0, hi = nums.length - 1;
+        while (lo < hi) {
+            int mid = partition(nums, lo, hi);
+            if (mid == k) {
+                break;
             }
-            if (i < j) {
-                nums[i] = nums[j];
-            }
-            while (i < j && nums[i] < pivot) {
-                i ++;
-            }
-            if (i < j) {
-                nums[j] = nums[i];
+            if (mid > k) {
+                hi = mid - 1;
+            } else {
+                lo = mid + 1;
             }
         }
-        nums[i] = pivot;
-        return i;
+        return nums[k];
+    }
+    private int partition(int[] nums, int lo, int hi) {
+        int pivot = nums[lo];
+        while (lo < hi) {
+            while (lo < hi && nums[hi] >= pivot) {
+                hi --;
+            }
+            nums[lo] = nums[hi];
+            while (lo < hi && nums[lo] <= pivot) {
+                lo ++;
+            }
+            nums[hi] = nums[lo];   
+        }
+        nums[lo] = pivot;
+        return lo;
     }
 
     // solution 5: Boyer-Moore Voting Algorithm
