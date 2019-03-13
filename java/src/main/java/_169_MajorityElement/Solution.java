@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Solution {
     public int majorityElement(int[] nums) {
-        return solution5(nums);
+        return solution4(nums);
     }
 
     // solution 1: Using hash table
@@ -63,7 +63,7 @@ public class Solution {
     // TODO: solution :Bit manipulation
 
     // solution 4: partition and binary search
-    private int solution5(int[] nums) {
+    private int solution4(int[] nums) {
         if (nums == null || nums.length == 0) {
             return -1;
         }
@@ -100,5 +100,23 @@ public class Solution {
         }
         nums[i] = pivot;
         return i;
+    }
+
+    // solution 5: Boyer-Moore Voting Algorithm
+    private int solution5(int[] nums) {
+        int maj = -1;
+        for (int c = 0, i = 0; i < nums.length; i ++) {
+            if (c == 0) {
+                maj = nums[i];
+                c = 1;
+            } else {
+                if (maj == nums[i]) {
+                    c ++;
+                } else {
+                    c --;
+                }
+            }
+        }
+        return maj;
     }
 }
