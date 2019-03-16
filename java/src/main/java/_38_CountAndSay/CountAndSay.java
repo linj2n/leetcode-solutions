@@ -1,4 +1,4 @@
-package _38;
+package _38_CountAndSay;
 
 public class CountAndSay {
     public String countAndSay(int n) {
