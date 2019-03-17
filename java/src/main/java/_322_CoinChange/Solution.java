@@ -30,9 +30,10 @@ public class Solution {
     // Solution2: top-Down-DP (AC)
     // Time: O(amount * n), Space: O(amount)
     private int solution2(int i, int[] coins, int amount) {
-        return coinChange(coins, amount, new int[amount + 1]);
+        // return calc2(0, coins, amount, new int[coins.length + 1][amount + 1]);
+        return calc1(coins, amount, new int[amount + 1]);
     }
-    private int coinChange(int[] coins, int amount, int[] dp) {
+    private int calc1(int[] coins, int amount, int[] dp) {
         if (amount < 0) {
             return -1;
         }
@@ -44,13 +45,35 @@ public class Solution {
         }
         int min = Integer.MAX_VALUE;
         for (int coin : coins) {
-            int count = coinChange(coins, amount - coin, dp);
+            int count = calc1(coins, amount - coin, dp);
             if (count >= 0 && count < min) {
                 min = 1 + count;
             }
         }
         dp[amount] = min != Integer.MAX_VALUE ? min : -1;
         return dp[amount];
+    }
+
+    private int calc2(int i, int[] coins, int amount, int[][] dp) {
+        int res = Integer.MAX_VALUE;
+        if (i == coins.length) {
+            res = amount == 0 ? 0 : -1;
+        } else {
+            for (int k = 0; k * coins[i] <= amount; k ++) {
+                int count = dp[i + 1][amount - k * coins[i]];
+                if (count != 0) {
+                    // 子问题已经求解过了
+                    res = count == -1 ? res : Math.min(res, k + count);
+
+                } else {
+                    // 子问题没有求解过，更新 count
+                    count = calc2(i + 1, coins, amount - k * coins[i], dp);
+                    res = count == -1 ? res : Math.min(res, k + count);
+                }
+            }
+        }
+        dp[i][amount] = (res == Integer.MAX_VALUE ? -1 : res);
+        return dp[i][amount];
     }
 
     // Solution3: bottom-up DP
