@@ -55,16 +55,20 @@ public class Solution {
             return 0;
         }
         if (coins.length == 0) {
-            return amount > 0 ? 0 : 1;
+            return amount == 0 ? 1 : 0;
         }
-        int[][] dp = new int[coins.length][amount + 1]; // dp[i][j] 表示使用 coins[0..i] 货币下，组成钱数 j 元的方法数
+        // dp[i][j] 表示使用 coins[0..i] 货币下，组成钱数 j 元的方法数
+        int[][] dp = new int[coins.length][amount + 1];
+        // 1. 问题边界状态: dp[0][k * coins[0]] = 1, dp[coins[0..i]][0] = 1;
         for (int k = 0; k < coins.length; k ++) {
             dp[k][0] = 1;   // 使用 coins[0..k] 货币组成钱数 0 元的方法数
         }
-        for (int t = 1; t * coins[0] <= amount; t ++) {
+        for (int t = 0; t * coins[0] <= amount; t ++) {
             dp[0][t * coins[0]] = 1;    // 只使用 coins[0] 这一种货币，仅能组成其倍数面值，因此初始条件下 t * coins[0] 元的方法数均为 1;
         }
+        // 2. 从问题边界状态开始出发，递推地求解问题
         for (int i = 1; i < coins.length; i ++) {
+            // Top-down thinking
             for (int j = 1; j <= amount; j ++) {
                 int count = 0;
                 for (int k = 0; j - coins[i] * k >= 0; k ++) {
@@ -75,25 +79,27 @@ public class Solution {
         }
         return dp[coins.length - 1][amount];
     }
-    // Solution 4: Dynamic programming (Optimal)
+    // Solution 4: Dynamic programming (Bottom-up, Optimal1)
     private int solution4(int amount, int[] coins) {
         if (coins == null || amount < 0) {
             return 0;
         }
         if (coins.length == 0) {
-            return amount > 0 ? 0 : 1;
+            return amount == 0 ? 1 : 0;
         }
-        int[][] dp = new int[coins.length][amount + 1]; // dp[i][j] 表示使用 coins[0..i] 货币下，组成钱数 j 元的方法数
-        for (int k = 0; k < coins.length; k ++) {
-            dp[k][0] = 1;   // 使用 coins[0..k] 货币组成钱数 0 元的方法数
+        int[][] dp = new int[coins.length][amount + 1];
+        // 1. 问题边界状态: dp[0][k * coins[0]] = 1, dp[coins[0..i]][0] = 1;
+        for (int k = 0; k * coins[0] <= amount; k ++ ) {
+            dp[0][k * coins[0]] = 1;
         }
-        for (int t = 1; t * coins[0] <= amount; t ++) {
-            dp[0][t * coins[0]] = 1;
+        for (int t = 0; t < coins.length; t ++) {
+            dp[t][0] = 1;
         }
+        // 2. 从问题边界状态开始出发，递推地求解问题
         for (int i = 1; i < coins.length; i ++) {
             for (int j = 1; j <= amount; j ++) {
-                dp[i][j] = dp[i - 1][j];
-                dp[i][j] += (j - coins[i] >= 0) ? dp[i][j - coins[i]] : 0;
+                // 状态转移方程：dp[i][j] = dp[i][j - coins[i]] + dp[i - 1][j];
+                dp[i][j] = dp[i - 1][j] + ((j - coins[i] < 0) ? 0 : dp[i][j - coins[i]]);
             }
         }
         return dp[coins.length - 1][amount];
