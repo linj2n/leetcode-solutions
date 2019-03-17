@@ -30,9 +30,6 @@ public class Solution {
     // Solution2: top-Down-DP (AC)
     // Time: O(amount * n), Space: O(amount)
     private int solution2(int i, int[] coins, int amount) {
-        if (coins == null || coins.length == 0) {
-            return -1;
-        }
         return coinChange(coins, amount, new int[amount + 1]);
     }
     private int coinChange(int[] coins, int amount, int[] dp) {
