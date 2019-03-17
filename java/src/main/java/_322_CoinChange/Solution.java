@@ -61,15 +61,11 @@ public class Solution {
         } else {
             for (int k = 0; k * coins[i] <= amount; k ++) {
                 int count = dp[i + 1][amount - k * coins[i]];
-                if (count != 0) {
-                    // 子问题已经求解过了
-                    res = count == -1 ? res : Math.min(res, k + count);
-
-                } else {
+                if (count == 0) {
                     // 子问题没有求解过，更新 count
                     count = calc2(i + 1, coins, amount - k * coins[i], dp);
-                    res = count == -1 ? res : Math.min(res, k + count);
                 }
+                res = count == -1 ? res : Math.min(res, k + count);
             }
         }
         dp[i][amount] = (res == Integer.MAX_VALUE ? -1 : res);
