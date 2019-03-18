@@ -102,11 +102,11 @@ public class Solution {
         for (int r = 0; r < dp.length; r ++) {
             dp[r][0] = 0;
         }
-        // 3. 根据状态转移方程：dp[i][j] = min{dp[i-1][j], dp[i][j - squareNums.get(i)] + 1}
+        // 3. 根据状态转移方程：dp[i][j] = min{dp[i-1][j], dp[i][j - squareNums.get(i)] + 1} 自底向上递推
         for (int i = 1; i < dp.length; i ++) {
             for (int j = 1; j <= n; j ++) {
                 dp[i][j] = Math.min(dp[i][j], dp[i - 1][j]);
-                int t = (int)(j - squareNums.get(i));
+                int t = j - squareNums.get(i);
                 if (t >= 0 && dp[i][t] != Integer.MAX_VALUE) {
                     dp[i][j] = Math.min(dp[i][j], dp[i][t] + 1);
                 }
@@ -115,4 +115,34 @@ public class Solution {
         return dp[dp.length - 1][n];
     }
 
+    // Solution 5: Dynamic programming (Bottom-up, Space optimization based on solution 4)
+    private int solution5(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        // 0. 计算所有可以使用的平方数
+        List<Integer> squareNums = new ArrayList<>();
+        for (int num = 1; num <= Math.sqrt(n); num ++) {
+            squareNums.add(num * num);
+        }
+        // 1. dp[j], 使用平方数构成 j 的最小数量
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+
+        // 2. 问题边界状态：dp[0][k] = k, dp[..][0] = 0
+        dp[0] = 0;
+        for (int s = 1; s <= n; s ++) {
+            dp[s] = s;  // s == s * squareNums[0]
+        }
+        // 3. 根据状态转移方程：使用滚动数组时状态转移方程： dp[i] = min{dp[i], dp[j - squareNums.get(i)] + 1} 自底向上递推
+        for (int i = 1; i < squareNums.size(); i ++) {
+            for (int j = 1; j <= n; j ++) {
+                int t = j - squareNums.get(i);
+                if (t >= 0 && dp[t] != Integer.MAX_VALUE) {
+                    dp[j] = Math.min(dp[j], dp[t] + 1);
+                }
+            }
+        }
+        return dp[n];
+    }
 }
