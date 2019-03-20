@@ -67,22 +67,19 @@ public class Solution {
         return quickSelect(nums, nums.length / 2);
     }
     private int quickSelect(int[] nums, int k) {
-        if (nums.length == 0 || nums.length == 1) {
-            return nums[0];
+        if (nums == null) {
+            return -1;
         }
         int lo = 0, hi = nums.length - 1;
         while (lo < hi) {
             int mid = partition(nums, lo, hi);
-            if (mid == k) {
-                break;
-            }
-            if (mid > k) {
-                hi = mid - 1;
+            if (mid >= k) {
+                hi = mid;
             } else {
                 lo = mid + 1;
             }
         }
-        return nums[k];
+        return nums[lo];
     }
     private int partition(int[] nums, int lo, int hi) {
         int pivot = nums[lo];
