@@ -26,14 +26,17 @@ public class Solution {
         return res;
     }
     private int solution2(int n) {
-        return calc(0, n, new int[n + 1][n + 1]);   
-    }
-    private int calc(int i, int n, int[][] dp) {
-        int res = Integer.MIN_VALUE;
-        if (i == n) {
-            res = n == 0;    
+        if (n <= 1) {
+            return 0;
         }
-        dp[i][n] = res == Integer.MIN_VALUE ? -1 : res;
-        return dp[i][n];
+        int[] dp = new int[n + 1];
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j <= i / 2; j++) {
+                int left = Math.max(j, dp[j]);
+                int right = Math.max(i - j, dp[i - j]);
+                dp[i] = Math.max(dp[i], left * right);
+            }
+        }
+        return dp[n];    
     }
 }
