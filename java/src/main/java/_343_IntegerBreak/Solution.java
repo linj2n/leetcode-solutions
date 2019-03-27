@@ -25,18 +25,20 @@ public class Solution {
         }
         return res;
     }
+    // Dynamic programming (Bottom-up)
     private int solution2(int n) {
-        if (n <= 1) {
+        if (n < 2) {
             return 0;
         }
         int[] dp = new int[n + 1];
-        for (int i = 2; i <= n; i++) {
-            for (int j = 1; j <= i / 2; j++) {
-                int left = Math.max(j, dp[j]);
-                int right = Math.max(i - j, dp[i - j]);
-                dp[i] = Math.max(dp[i], left * right);
+        dp[0] = 0;
+        dp[1] = 0;
+        dp[2] = 1;
+        for (int i = 3; i <= n; i ++) {
+            for (int j = 1; i - j > 0; j ++) {
+                dp[i] = Math.max(j * (i - j), j * dp[i - j]);
             }
         }
-        return dp[n];    
+        return dp[n];
     }
 }
