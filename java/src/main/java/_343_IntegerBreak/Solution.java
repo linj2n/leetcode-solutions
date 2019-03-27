@@ -41,4 +41,21 @@ public class Solution {
         }
         return dp[n];
     }
+    // Dynamic programming (Bottom-up)
+    private int solution4(int n) {
+        if (n <= 3) {
+            return n < 2 ? 0 : n - 1;
+        }
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = 1;
+        dp[2] = 2;
+        dp[3] = 3;
+        for (int i = 4; i <= n; i ++) {
+            for (int j = 1; j < i / 2; j ++) {
+                dp[i] = Math.max(dp[i], dp[i - j] * dp[j]);
+            }
+        }
+        return dp[n];
+    }
 }
