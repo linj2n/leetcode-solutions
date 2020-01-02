@@ -10,6 +10,7 @@ public class CombinationSum {
             return lists;
         }
         dfs(0, 0, target, candidates, lists, new ArrayList<>());
+        // backtracking(new ArrayList<>(), 0, 0, target, candidates, lists);
         return lists;
     }
     private void dfs(int i, int sum, int target, int[] candidates, List<List<Integer>> lists, List<Integer> list) {
@@ -21,11 +22,28 @@ public class CombinationSum {
             return ;
         }
         for (int t = i; t < candidates.length; t ++) {
-            sum += candidates[t];
             list.add(candidates[t]);
-            dfs(t, sum, target, candidates, lists, list);
+            dfs(t, sum + candidates[t] target, candidates, lists, list);
             list.remove(list.size() - 1);
-            sum -= candidates[t];
+        }
+    }
+
+    private void backtracking(List<Integer> list, int i, int sum, int target, int[] candidates, List<List<Integer>> ans) {
+        if (sum == target) {
+            ans.add(new ArrayList<>(list));
+            return ;
+        }
+        if (i == candidates.length) {
+            return ;
+        }
+        int t = 0;
+        for (; sum + t * candidates[i] <= target; t ++) { 
+            backtracking(list, i + 1, sum + t * candidates[i], target, candidates, ans);
+            list.add(candidates[i]);
+        }
+        while (t != 0) {
+            list.remove(list.size() - 1);
+            t --;
         }
     }
 }
