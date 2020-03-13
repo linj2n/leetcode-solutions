@@ -6,18 +6,20 @@ class LongestSubstringWithoutRepeatingCharacters {
         return solution1(s);
     }
     private int solution1(String s) {
-        Set<Character> set = new HashSet<>();
-        int maxLength = 0;
+        int[] set = new int[128];
+        int ans = 0;
         int i = 0, j = 0;
-        while (i < s.length() && j < s.length()) {
-            if (!set.contains(s.charAt(j))) {
-                set.add(s.charAt(j++));
-                maxLength = Math.max(maxLength,j - i);
-            } else {
-                set.remove(s.charAt(i++));
+        while (j < s.length()) {
+            set[s.charAt(j)] ++;
+            // 刚刚加入的元素出现了两次及其以上
+            while (i < j && set[s.charAt(j)] > 1) {
+                set[s.charAt(i)] --;
+                i ++;
             }
+            ans = Math.max(j - i + 1, ans);
+            j ++;
         }
-        return maxLength;
+        return ans;
     }
     private int solution2(String s) {
         Map<Character,Integer> map = new HashMap<>();
