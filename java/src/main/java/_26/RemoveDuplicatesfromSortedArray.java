@@ -2,15 +2,12 @@ package _26;
 
 public class RemoveDuplicatesfromSortedArray {
     public int removeDuplicates(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int endIndex = 0;
-        for (int walk = endIndex; walk < nums.length; ++ walk) {
-            if (nums[endIndex] != nums[walk]) {
-                nums[++ endIndex] = nums[walk];   
+        int l = 0, r = 0;
+        while (r < nums.length) {
+            if (r == 0 || nums[r] != nums[r - 1]) {
+                nums[l ++] = nums[r];
             }
+            r ++;
         }
-        return endIndex + 1;
-    }
+        return l;    }
 }
