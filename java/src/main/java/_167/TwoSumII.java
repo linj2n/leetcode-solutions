@@ -8,16 +8,18 @@ public class TwoSumII {
     }
 
     private int[] solution1(int[] numbers, int target) {
-        int left = 0, right = numbers.length - 1, sum;
-        while (left < right) {
-            sum = numbers[left] + numbers[right];
-            if (sum == target) {
-                return new int[]{left + 1, right + 1};
-            } else if (sum > target) {
-                --right;
-            } else {
-                ++left;
+        if (numbers == null || numbers.length < 2) {
+            return null;
+        }
+        int l = 0, r = numbers.length - 1;
+        while (l < r) {
+            while (l < r && numbers[l] + numbers[r] > target) {
+                r --;
             }
+            if (numbers[l] + numbers[r] == target) {
+                return new int[] {l + 1, r + 1};
+            }
+            l ++;    
         }
         return null;
     }
